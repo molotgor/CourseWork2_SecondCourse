@@ -1,1 +1,1 @@
-# CourseWork2_SecondCourse
+# CourseWork_SecondCourse
