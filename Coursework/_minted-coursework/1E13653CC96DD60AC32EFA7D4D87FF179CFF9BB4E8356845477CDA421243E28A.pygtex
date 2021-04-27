@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{endgame} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{n}{uiend}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+    \PYG{n}{endScreen}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+    \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+    \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{n}{Vector3}\PYG{p}{.}\PYG{n}{zero}\PYG{p}{;}
+    \PYG{n}{transform}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mf}{39.02f}\PYG{p}{,} \PYG{l+m+mf}{23.25f}\PYG{p}{,} \PYG{l+m+mf}{0f}\PYG{p}{);}
+    \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+    \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+\end{Verbatim}

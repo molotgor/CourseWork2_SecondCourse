@@ -1,0 +1,68 @@
+\begin{thebibliography}{1}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibAuthor\def\BibAuthor#1{\emph{#1}}\else\fi
+\ifx\undefined\BibTitle\def\BibTitle#1{#1}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\def\BibAnnote#1{}\else\fi
+\ifx\undefined\BibSection\def\BibSection#1#2#3{}\else\fi
+
+\bibitem{gd_html5}
+\selectlanguageifdefined{english}
+\BibAuthor{Roberto,~D.} \BibTitle{HTML5 Game Development from the Ground Up
+  with Construct 2}~/ D.~Roberto. "---
+\newblock New York: CRC Press, 2014.
+
+\bibitem{gd_const}
+\selectlanguageifdefined{english}
+\BibAuthor{Stemkoski,~L.} \BibTitle{Game Development with Construct 2: From
+  Design to Realization}~/ L.~Stemkoski. "---
+\newblock New York: Apress, 2017.
+
+\bibitem{Constr_of}
+\selectlanguageifdefined{english}
+\BibTitle{Официальный сайт Construct 2 [{Э}лектронный ресурс]}. "---
+\newblock URL:~\url{https://www.scirra.com/store/construct-2} (Дата обращения
+  25.02.2020). Загл. экр. Англ. рус.
+
+\bibitem{gd_unity}
+\selectlanguageifdefined{english}
+\BibAuthor{Bond,~J.~G.} \BibTitle{Introduction to Game Design, Prototyping, and
+  Development: From Concept to Playable Game with Unity and C\#}~/ J.~G. Bond.
+  "---
+\newblock Boston: Addison-Wesley, 2014.
+
+\bibitem{gd_unity_2d}
+\selectlanguageifdefined{english}
+\BibAuthor{Halpern,~J.} \BibTitle{Developing 2D Games with Unity : Independent
+  Game Programming with C\#}~/ J.~Halpern. "---
+\newblock New York: Apress, 2018.
+
+\bibitem{MSDN}
+\selectlanguageifdefined{english}
+\BibTitle{C\# docs [{Э}лектронный ресурс]}. "---
+\newblock URL:~\url{https://docs.microsoft.com/en-us/dotnet/csharp/} (Дата
+  обращения 14.04.2020). Загл. экр. Англ. рус.
+
+\bibitem{gd_unity_c}
+\selectlanguageifdefined{english}
+\BibAuthor{Ferrone,~H.} \BibTitle{Learning C\# by Developing Games with Unity
+  2019: Code in C\# and build 3D games with Unity, 4th Edition}~/ H.~Ferrone.
+  "---
+\newblock Burmingham: Packt, 2019.
+
+\bibitem{Unity_of}
+\selectlanguageifdefined{english}
+\BibTitle{Официальный сайт Unity [{Э}лектронный ресурс]}. "---
+\newblock URL:~\url{https://unity.com} (Дата обращения 11.04.2020). Загл. экр.
+  Англ. рус.
+
+\bibitem{Gamesparks}
+\selectlanguageifdefined{english}
+\BibTitle{Unity Game Engine Review [{Э}лектронный ресурс]}. "---
+\newblock URL:~\url{https://www.gamesparks.com/blog/unity-game-engine-review/}
+  (Дата обращения 24.04.2020). Загл. экр. Англ. рус.
+
+\end{thebibliography}

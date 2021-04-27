@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - DETH
+  - Coin
+  - Exit
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 2611340941
+    locked: 0
+  - name: spikes_back
+    uniqueID: 2799807493
+    locked: 0
+  - name: tiles
+    uniqueID: 1897144053
+    locked: 0
+  - name: objects
+    uniqueID: 1799646631
+    locked: 0
+  - name: spikes_front
+    uniqueID: 2841342119
+    locked: 0
+  - name: starting_screen
+    uniqueID: 3301178879
+    locked: 0

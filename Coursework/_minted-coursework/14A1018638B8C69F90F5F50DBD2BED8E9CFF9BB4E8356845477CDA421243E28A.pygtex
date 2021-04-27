@@ -1,0 +1,37 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{OnCollisionEnter2D}\PYG{p}{(}\PYG{n}{Collision2D} \PYG{n}{collision}\PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dead}\PYG{p}{)}
+            \PYG{k}{switch} \PYG{p}{(}\PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{tag}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}
+                \PYG{k}{case} \PYG{l+s}{\PYGZdq{}DETH\PYGZdq{}}\PYG{o}{:}
+                \PYG{p}{\PYGZob{}}
+                    \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                    \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{deth}\PYG{p}{;}
+                    \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+                    \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+                \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{default}\PYG{o}{:}
+                \PYG{p}{\PYGZob{}}
+                \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{OnTriggerEnter2D}\PYG{p}{(}\PYG{n}{Collider2D} \PYG{n}{collision}\PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dead}\PYG{p}{)}
+            \PYG{k}{switch} \PYG{p}{(}\PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{tag}\PYG{p}{)}
+             \PYG{p}{\PYGZob{}}
+                \PYG{k}{case} \PYG{l+s}{\PYGZdq{}DETH\PYGZdq{}}\PYG{o}{:}
+                \PYG{p}{\PYGZob{}}
+                    \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                    \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{deth}\PYG{p}{;}
+                    \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+                    \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+                \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{default}\PYG{o}{:}
+                \PYG{p}{\PYGZob{}}
+                \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+             \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

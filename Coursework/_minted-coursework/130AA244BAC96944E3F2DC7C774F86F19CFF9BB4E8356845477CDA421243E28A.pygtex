@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+     \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{floorCheck}\PYG{p}{()}
+     \PYG{p}{\PYGZob{}}
+         \PYG{k+kt}{bool} \PYG{n}{onfloor} \PYG{o}{=} \PYG{n}{OnFloor}\PYG{p}{;}
+         \PYG{n}{OnFloor} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+
+         \PYG{n}{Collider2D}\PYG{p}{[]} \PYG{n}{colliders} \PYG{o}{=} \PYG{n}{Physics2D}\PYG{p}{.}\PYG{n}{OverlapCircleAll}\PYG{p}{(}\PYG{n}{FloorCheck}\PYG{p}{.}\PYG{n}{position}\PYG{p}{,}
+             \PYG{n}{FloorCheckRadius}\PYG{p}{,} \PYG{n}{Ground}\PYG{p}{);}
+         \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{colliders}\PYG{p}{.}\PYG{n}{Length}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+             \PYG{p}{\PYGZob{}}
+             \PYG{k}{if} \PYG{p}{(}\PYG{n}{colliders}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{gameObject} \PYG{o}{!=} \PYG{n}{gameObject}\PYG{p}{)}
+             \PYG{p}{\PYGZob{}}
+                 \PYG{n}{OnFloor} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+             \PYG{p}{\PYGZcb{}}
+         \PYG{p}{\PYGZcb{}}
+     \PYG{p}{\PYGZcb{}}
+
+     \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{Move}\PYG{p}{(}\PYG{k+kt}{float} \PYG{n}{move}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{jump}\PYG{p}{)}
+     \PYG{p}{\PYGZob{}}
+         \PYG{n}{Vector3} \PYG{n}{targetVelocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{n}{move} \PYG{o}{*} \PYG{l+m+mf}{10f}\PYG{p}{,} \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);}
+         \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{n}{Vector3}\PYG{p}{.}\PYG{n}{SmoothDamp}\PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{,}
+         \PYG{n}{targetVelocity}\PYG{p}{,} \PYG{n}{ref} \PYG{n}{velocity}\PYG{p}{,} \PYG{n}{MovementSmoothing}\PYG{p}{);}
+     \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

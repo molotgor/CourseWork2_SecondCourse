@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{Shoot}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{Instantiate}\PYG{p}{(}\PYG{n}{Arrow}\PYG{p}{,} \PYG{n}{SpawnPoint}\PYG{p}{.}\PYG{n}{position}\PYG{p}{,} \PYG{n}{SpawnPoint}\PYG{p}{.}\PYG{n}{rotation}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{OnTriggerEnter2D}\PYG{p}{(}\PYG{n}{Collider2D} \PYG{n}{collision}\PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}Player\PYGZdq{}}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{Enabled} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+            \PYG{n}{Anime}\PYG{p}{.}\PYG{n}{SetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enabled\PYGZdq{}}\PYG{p}{,} \PYG{n}{Enabled}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 2</name>
+    <events>
+        <event-block sid="334237440086190">
+            <conditions>
+                <condition id="-18" name="On created" sid="690201421819823" type="txtCoinsCount" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="119623583013085" type="txtCoinsCount">
+                    <param id="0" name="Text">Points</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

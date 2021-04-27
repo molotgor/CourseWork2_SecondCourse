@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="Points" sid="155136783929092" static="0" type="number">0</variable>
+        <event-group description="" sid="265210577126913" title="Movement">
+            <sub-events>
+                <event-block sid="121237530279450">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="442121706872718" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="334622468393497" type="Pluer">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="640705985001045" type="Pluer">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="585849871224348">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="613322339532512" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="379300878783696" type="Pluer">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="898131779227485" type="Pluer">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="924895110523661">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="303622219576334" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="107756911781625" type="Pluer">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="185371390917738">
+                    <conditions>
+                        <condition behavior="Platform" id="0" name="Is moving" sid="495584836748858" type="Pluer" />
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="851455395118199" type="Pluer" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="550203838026400" type="Pluer">
+                            <param id="0" name="Animation">&quot;Run&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="262718201550475">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="965474496686573" type="Pluer" />
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="331847425626275" type="Pluer" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="898751710987858" type="Pluer">
+                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="419677507628499">
+                    <conditions>
+                        <condition behavior="Platform" id="3" name="Is jumping" sid="325008517264467" type="Pluer" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="426901100612048" type="Pluer">
+                            <param id="0" name="Animation">&quot;Jump&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="453418782511781">
+                    <conditions>
+                        <condition behavior="Platform" id="4" name="Is falling" sid="383061125243085" type="Pluer" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="246648112994860" type="Pluer">
+                            <param id="0" name="Animation">&quot;Fall&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="961332449855489" title="Enemies">
+            <sub-events>
+                <event-block sid="679105671081028">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="576011495743983" type="enemySimple">
+                            <param id="0" name="Instance variable">enabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="109511829769773">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="254926111679065" type="enemySimple">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="836543619769657" type="enemySimple">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="605977298458542">
+                                    <conditions>
+                                        <condition id="9" name="Is overlapping at offset" sid="548032783214760" type="enemySimple">
+                                            <param id="0" name="Object">platformSolid</param>
+                                            <param id="1" name="Offset X">-30</param>
+                                            <param id="2" name="Offset Y">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="872806445961371" type="enemySimple">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="168481395166414" type="enemySimple">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="557536941569098">
+                                    <conditions>
+                                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="163645903356927" type="enemySimple">
+                                            <param id="0" name="Object">platformSolid</param>
+                                            <param id="1" name="Offset X">-60</param>
+                                            <param id="2" name="Offset Y">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="904078117275403" type="enemySimple">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="625615457249053" type="enemySimple">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="102281331984241">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="775420489497666" type="enemySimple">
+                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="793643439840790" type="enemySimple">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="396855339061403">
+                                    <conditions>
+                                        <condition id="9" name="Is overlapping at offset" sid="478809792350577" type="enemySimple">
+                                            <param id="0" name="Object">platformSolid</param>
+                                            <param id="1" name="Offset X">30</param>
+                                            <param id="2" name="Offset Y">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="484114434084814" type="enemySimple">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="827191168767628" type="enemySimple">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="798781048232587">
+                                    <conditions>
+                                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="262723163027646" type="enemySimple">
+                                            <param id="0" name="Object">platformSolid</param>
+                                            <param id="1" name="Offset X">60</param>
+                                            <param id="2" name="Offset Y">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="185989027308771" type="enemySimple">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="745213357839833" type="enemySimple">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="785504265978837">
+                    <conditions>
+                        <condition id="-3" name="Is on-screen" sid="337159294956312" type="enemySimple" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="262048467813090" type="enemySimple">
+                            <param id="0" name="Instance variable">enabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="473509385776942">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="232332798765837" type="enemySimple">
+                            <param id="0" name="Object">Pluer</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="961665537929646" type="Pluer" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="141308380419270" title="Pluer Interactions">
+            <sub-events>
+                <event-block sid="746921184513812">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="634794753535852" type="Coin">
+                            <param id="0" name="Object">Pluer</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="525407150255753" type="System">
+                            <param id="0" name="Variable">Points</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="170651186447460" type="Coin" />
+                    </actions>
+                </event-block>
+                <event-block sid="622711661066190">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="474425700051033" type="spikes">
+                            <param id="0" name="Object">Pluer</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="499298317658628" type="Pluer" />
+                    </actions>
+                </event-block>
+                <event-block sid="555119906500373">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="282678899564790" type="Fire">
+                            <param id="0" name="Object">Pluer</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="396708274312754" type="Pluer" />
+                    </actions>
+                </event-block>
+                <event-block sid="718686051909567">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="278141469889069" type="ArrowRight">
+                            <param id="0" name="Object">platformSolid</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="687694368292333" type="ArrowRight" />
+                    </actions>
+                </event-block>
+                <event-block sid="109313541320365">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="827241604548463" type="ArrowLeft">
+                            <param id="0" name="Object">platformSolid</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="805596515442656" type="ArrowLeft" />
+                    </actions>
+                </event-block>
+                <event-block sid="855667376747765">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="467569720605376" type="ArrowRight">
+                            <param id="0" name="Object">Pluer</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="859539489575181" type="Pluer" />
+                        <action id="-9" name="Destroy" sid="983831186940400" type="ArrowRight" />
+                    </actions>
+                </event-block>
+                <event-block sid="157753013242576">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="152900105907426" type="ArrowLeft">
+                            <param id="0" name="Object">Pluer</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="815405678854775" type="Pluer" />
+                        <action id="-9" name="Destroy" sid="435286182064218" type="ArrowLeft" />
+                    </actions>
+                </event-block>
+                <event-block sid="762081296075190">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="932313863868532" type="Pluer">
+                            <param id="0" name="Object">EndLevel</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="603302928339677" type="System">
+                            <param id="0" name="Layout">EndScreen</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="457396191664042" title="System">
+            <sub-events>
+                <event-block sid="696050996131017">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="658435564199791" type="Pluer" />
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="184254636077129" type="System" />
+                        <action id="-9" name="Set value" sid="542070165795466" type="System">
+                            <param id="0" name="Variable">Points</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="724169347034501">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="458990276457124" type="System">
+                            <param id="0" name="Interval (seconds)">1</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="526710045863501" type="platformSpawnLeft">
+                            <param id="0" name="Instance variable">Enabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="580071135347310" type="System">
+                            <param id="0" name="Object to create">ArrowRight</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">16</param>
+                            <param id="3" name="Y">144</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="174568692018236">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="916568630119730" type="System">
+                            <param id="0" name="Interval (seconds)">1</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="479083649546038" type="platformSpawnRight">
+                            <param id="0" name="Instance variable">Enabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="521191102112931" type="System">
+                            <param id="0" name="Object to create">ArrowLeft</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">464</param>
+                            <param id="3" name="Y">304</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="630231038654015">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="593674609418023" type="Pluer">
+                            <param id="0" name="Object">Trigger</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="590138492055873" type="platformSpawnLeft">
+                            <param id="0" name="Instance variable">Enabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="693627496105783" type="platformSpawnLeft">
+                            <param id="0" name="Animation">&quot;Enabled&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="868775005187636" type="platformSpawnRight">
+                            <param id="0" name="Instance variable">Enabled</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="497448365990352" type="platformSpawnRight">
+                            <param id="0" name="Animation">&quot;Enabled&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="222160960837068">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="229483357972229" type="ArrowLeft" />
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Move to layer" sid="472372503155586" type="ArrowLeft">
+                            <param id="0" name="Layer">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="520256907165517">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="779094810450459" type="ArrowRight" />
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Move to layer" sid="276583936018098" type="ArrowRight">
+                            <param id="0" name="Layer">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{OnTriggerEnter2D}\PYG{p}{(}\PYG{n}{Collider2D} \PYG{n}{collision}\PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dead}\PYG{p}{)}
+            \PYG{k}{switch} \PYG{p}{(}\PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{tag}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}
+                \PYG{p}{...}
+                \PYG{k}{case} \PYG{l+s}{\PYGZdq{}Coin\PYGZdq{}}\PYG{o}{:}
+                \PYG{p}{\PYGZob{}}
+                    \PYG{n}{counter}\PYG{p}{.}\PYG{n}{text} \PYG{o}{=} \PYG{n}{coinCount}\PYG{p}{.}\PYG{n}{ToString}\PYG{p}{();}
+                    \PYG{n}{Animator} \PYG{n}{animeCoin} \PYG{o}{=}
+                        \PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Animator}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+                    \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{animeCoin}\PYG{p}{.}\PYG{n}{GetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Collected\PYGZdq{}}\PYG{p}{))} \PYG{n}{coinCount}\PYG{o}{++}\PYG{p}{;}
+                    \PYG{n}{animeCoin}\PYG{p}{.}\PYG{n}{SetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Collected\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{true}\PYG{p}{);}
+                \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+                \PYG{p}{...}
+            \PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+				
+		\PYG{k+kt}{void} \PYG{n+nf}{EndSparkle}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{Destroy}\PYG{p}{(}\PYG{n}{gameObject}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

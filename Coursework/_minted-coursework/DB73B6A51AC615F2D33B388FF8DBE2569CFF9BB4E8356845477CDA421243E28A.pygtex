@@ -1,0 +1,32 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+     \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{StateChanger}\PYG{p}{()}
+     \PYG{p}{\PYGZob{}}
+         \PYG{k}{switch} \PYG{p}{(}\PYG{n}{curState}\PYG{p}{)}
+             \PYG{p}{\PYGZob{}}
+             \PYG{k}{case} \PYG{n}{State}\PYG{p}{.}\PYG{n+nl}{jump}\PYG{p}{:}
+             \PYG{p}{\PYGZob{}}
+                  \PYG{k}{if} \PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.001f}\PYG{p}{)} \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{fall}\PYG{p}{;}
+             \PYG{p}{\PYGZcb{}}
+             \PYG{k}{break}\PYG{p}{;}
+             \PYG{k}{case} \PYG{n}{State}\PYG{p}{.}\PYG{n+nl}{fall}\PYG{p}{:}
+             \PYG{p}{\PYGZob{}}
+                  \PYG{k}{if} \PYG{p}{(}\PYG{n}{OnFloor}\PYG{p}{)} \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+             \PYG{p}{\PYGZcb{}}
+             \PYG{k}{break}\PYG{p}{;}
+             \PYG{k}{default}\PYG{o}{:}
+             \PYG{p}{\PYGZob{}}
+                  \PYG{k}{if} \PYG{p}{(}\PYG{n}{Mathf}\PYG{p}{.}\PYG{n}{Abs}\PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{1f}\PYG{p}{)}
+                  \PYG{p}{\PYGZob{}}
+                       \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{run}\PYG{p}{;}
+                  \PYG{p}{\PYGZcb{}}
+                  \PYG{k}{else}
+                  \PYG{p}{\PYGZob{}}
+                       \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+                  \PYG{p}{\PYGZcb{}}
+                  \PYG{k}{if} \PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.001f} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{OnFloor}\PYG{p}{)}
+                       \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{fall}\PYG{p}{;}
+             \PYG{p}{\PYGZcb{}}
+             \PYG{k}{break}\PYG{p}{;}
+             \PYG{p}{\PYGZcb{}}
+     \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

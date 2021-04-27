@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{public} \PYG{k}{class} \PYG{n+nc}{PluerMovement} \PYG{o}{:} \PYG{n}{MonoBehaviour}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n}{SpawnStart}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{spawn}\PYG{p}{;}
+        \PYG{n}{Camera}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mf}{13.63f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.4199999f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{10f}\PYG{p}{);}
+        \PYG{n}{transform}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{n}{SpawnPoint}\PYG{p}{.}\PYG{n}{position}\PYG{p}{;}
+        \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{n}{Vector3}\PYG{p}{.}\PYG{n}{zero}\PYG{p}{;}
+        \PYG{n}{Animator} \PYG{n}{disabler} \PYG{o}{=} \PYG{n}{LeftShooter}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Animator}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{disabler}\PYG{p}{.}\PYG{n}{SetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enabled\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{false}\PYG{p}{);}
+        \PYG{n}{disabler} \PYG{o}{=} \PYG{n}{RightShooter}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Animator}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{disabler}\PYG{p}{.}\PYG{n}{SetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enabled\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{false}\PYG{p}{);}
+        \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n}{SpawnEnd}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+        \PYG{n}{Camera}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mf}{13.63f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.4199999f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{10f}\PYG{p}{);}
+        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+        \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

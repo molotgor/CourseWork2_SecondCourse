@@ -1,0 +1,726 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Coursework</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>147oah5gy54b</unique-id>
+    <saved-with-version>27700</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-folder name="Misc">
+            <object-type name="Keyboard" sid="138143422935934">
+                <plugin id="Keyboard" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Pluer">
+            <object-type name="Pluer" sid="313115450586644">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Platform" sid="657545239719512">
+                        <behavior id="Platform" />
+                    </behavior-type>
+                    <behavior-type name="ScrollTo" sid="508633588727775">
+                        <behavior id="scrollto" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="8" loop="1" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="711719584989002" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle1.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle2.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.296875" />
+                                <point x="0.25" y="1" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.78125" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle3.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle4.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.296875" />
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle5.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.296875" />
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle6.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle7.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\idle\idle1.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="9" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="490422568254122" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run1.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run2.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run3.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run4.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run5.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run6.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run7.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run8.png">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\run\run.gif">
+                            <collision-poly>
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="1" />
+                                <point x="0.25" y="1" />
+                                <point x="0.25" y="0.296875" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="1" name="Fall" pingpong="0" repeatcount="1" repeatto="0" sid="484747686692873" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\jump\fall.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.296875" />
+                                <point x="0.78125" y="0.296875" />
+                                <point x="0.78125" y="0.9375" />
+                                <point x="0.25" y="0.9375" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="1" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="515292302714744" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\pluer\jump\jump.png">
+                            <collision-poly>
+                                <point x="0.0625" y="0.21875" />
+                                <point x="1" y="0.21875" />
+                                <point x="1" y="1" />
+                                <point x="0.0625" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Platform">
+            <object-type name="platformSolid" sid="620779281890899">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="460793935688040">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="531072314687446" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="platformSpawnLeft" sid="336720786503290">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="dir" sid="740842382400703" type="number" />
+                    <instance-variable name="Enabled" sid="657645703875063" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Solid" sid="190139162934656">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Disabled" pingpong="0" repeatcount="1" repeatto="0" sid="725397472981450" speed="5">
+                        <frame duration="1" hotspotX="0.8" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\001.png">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="7" loop="1" name="Enabled" pingpong="0" repeatcount="1" repeatto="0" sid="521745581773366" speed="5">
+                        <frame duration="1" hotspotX="0.8" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\001.png">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.8" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\002.png">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.8" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\003.png">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.8" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\004.png">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.8" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\005.png">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.8" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\006.png">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.8" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.8" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="0.8" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="platformSpawnRight" sid="628140665060036">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="dir" sid="909929275648242" type="number" />
+                    <instance-variable name="Enabled" sid="321276788234274" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Solid" sid="412900407996653">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Disabled" pingpong="0" repeatcount="1" repeatto="0" sid="726696289485910" speed="5">
+                        <frame duration="1" hotspotX="0.2" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\001.png">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="7" loop="1" name="Enabled" pingpong="0" repeatcount="1" repeatto="0" sid="797163121292965" speed="5">
+                        <frame duration="1" hotspotX="0.2" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\001.png">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.2" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\002.png">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.2" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\003.png">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.2" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\004.png">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.2" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\005.png">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.2" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\shooter\006.png">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.2" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.2" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.2" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Enemy">
+            <object-type name="enemySimple" sid="788114509995848">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="direction" sid="599163225858206" type="number" />
+                    <instance-variable name="enabled" sid="875501903108644" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Platform" sid="658364976695502">
+                        <behavior id="Platform" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="10" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="765200108283390" speed="5">
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy1.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy2.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy3.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy4.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy5.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy6.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy7.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy8.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\enemy\enemy9.png">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.28" hotspotY="0">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.28" y="1" />
+                                <point x="0.28" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Powers">
+            <object-type name="EndLevel" sid="159344899698429">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="direction" sid="789062280341071" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="916067745831392" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\Exit.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.194444" />
+                                <point x="0.75" y="0.194444" />
+                                <point x="0.75" y="1" />
+                                <point x="0.25" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Coin" sid="812095011847419">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="empty" sid="808983874805811" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="7" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="166449939018580" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\coin\coin1.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\coin\coin2.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\coin\coin3.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\coin\coin4.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\coin\coin5.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\coin\coin6.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                    <animation framecount="7" loop="0" name="Empty" pingpong="0" repeatcount="1" repeatto="0" sid="219887192405326" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\coin\sparkle\sparkle1.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\sparkle\sparkle2.png">
+                            <collision-poly>
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\sparkle\sparkle3.png">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="0" y="1" />
+                                <point x="1" y="1" />
+                                <point x="1" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\sparkle\sparkle4.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\sparkle\sparkle5.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\sparkle\sparkle6.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Kursach\Construct2\artworks\coin\sparkle\sparkle7.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Traps">
+            <object-type name="spikes" sid="332907139390874">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="923700679293377" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\Spikes\Back.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ArrowRight" sid="727189488484988">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Bullet" sid="819346120044446">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="271534653371527" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\arrow\arrow.png">
+                            <collision-poly>
+                                <point x="0.125" y="0.25" />
+                                <point x="0.9375" y="0.25" />
+                                <point x="0.9375" y="0.6875" />
+                                <point x="0.125" y="0.6875" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ArrowLeft" sid="781284283580169">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Bullet" sid="402362321320125">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="347960047048042" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\arrow\arrow.png">
+                            <collision-poly>
+                                <point x="0.9375" y="0.6875" />
+                                <point x="0.125" y="0.6875" />
+                                <point x="0.125" y="0.25" />
+                                <point x="0.9375" y="0.25" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Fire" sid="309396227053742">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="8" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="961105997823849" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire1.png" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire2.png" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire3.png" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire4.png" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire5.png" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire6.png" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire7.png" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\fire\fire8.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="text">
+            <object-type name="txtCoinsCount" sid="228785749136025">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="FinalWods" sid="855545540437839">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="FinalWods2" sid="367699892541999">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="FinalWods3" sid="724618036123048">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Controls" sid="901201164049916">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Controls2" sid="406221897440203">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Controls3" sid="486493818172579">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Controls4" sid="427083698496149">
+                <plugin id="Text" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Tiles">
+            <object-type name="Back" sid="423419693692853">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="685514915583989" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\Map\Back.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Tiles" sid="267669632184145">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="503170665515668" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\Map\tiles.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-type name="Trigger" sid="251169562001872">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="787498570876726" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\Trigger.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Spike" sid="697170752623476">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="924561730026392" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Kursach\Construct2\artworks\Spikes\Front.png">
+                        <collision-poly>
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Starting.xml</layout>
+        <layout>GameScreen.xml</layout>
+        <layout>EndScreen.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Event sheet 2.xml</event-sheet>
+        <event-sheet>Event sheet 3.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="3" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

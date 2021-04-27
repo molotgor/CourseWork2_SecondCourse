@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k+kt}{void} \PYG{n+nf}{Start}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{myrb} \PYG{o}{=} \PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Rigidbody2D}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{isRight}\PYG{p}{)} \PYG{n}{myrb}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{n}{speed}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+        \PYG{k}{else} \PYG{n}{myrb}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{speed}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Update is called once per frame}
+    \PYG{k+kt}{void} \PYG{n+nf}{Update}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{isRight}\PYG{p}{)} \PYG{n}{myrb}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{n}{speed}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+        \PYG{k}{else} \PYG{n}{myrb}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{speed}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

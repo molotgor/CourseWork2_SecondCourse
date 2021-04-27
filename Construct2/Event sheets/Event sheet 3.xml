@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 3</name>
+    <events>
+        <event-block sid="800744775006124">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="756124302624058" type="Keyboard" />
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="743124875087243" type="System">
+                    <param id="0" name="Layout">&quot;GameScreen&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

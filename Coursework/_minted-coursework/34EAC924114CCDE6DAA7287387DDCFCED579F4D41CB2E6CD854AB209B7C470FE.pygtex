@@ -1,0 +1,263 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{using} \PYG{n}{System}\PYG{p}{.}\PYG{n}{Collections}\PYG{p}{;}
+\PYG{k}{using} \PYG{n}{System}\PYG{p}{.}\PYG{n}{Collections}\PYG{p}{.}\PYG{n}{Generic}\PYG{p}{;}
+\PYG{k}{using} \PYG{n}{System}\PYG{p}{.}\PYG{n}{Xml}\PYG{p}{.}\PYG{n}{Serialization}\PYG{p}{;}
+\PYG{k}{using} \PYG{n}{UnityEditor}\PYG{p}{;}
+\PYG{k}{using} \PYG{n}{UnityEngine}\PYG{p}{;}
+\PYG{k}{using} \PYG{n}{UnityEngine}\PYG{p}{.}\PYG{n}{UI}\PYG{p}{;}
+
+\PYG{k}{public} \PYG{k}{class} \PYG{n+nc}{PluerMovement} \PYG{o}{:} \PYG{n}{MonoBehaviour}
+\PYG{p}{\PYGZob{}}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{k+kt}{float} \PYG{n}{JumpForce} \PYG{o}{=} \PYG{l+m+mf}{400f}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{Range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mf}{0.3f}\PYG{p}{)]} \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{k+kt}{float} \PYG{n}{MovementSmoothing} \PYG{o}{=} \PYG{l+m+mf}{0.05f}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{LayerMask} \PYG{n}{Ground}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{Transform} \PYG{n}{FloorCheck}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{Transform} \PYG{n}{SpawnPoint}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{Transform} \PYG{n}{Camera}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{GameObject} \PYG{n}{LeftShooter}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{GameObject} \PYG{n}{RightShooter}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{GameObject} \PYG{n}{uiend}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{GameObject} \PYG{n}{uistart}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{Text} \PYG{n}{counter}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{GameObject} \PYG{n}{startScreen}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{n}{GameObject} \PYG{n}{endScreen}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{bool} \PYG{n}{endgame} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{bool} \PYG{n}{started} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{bool} \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{k}{private} \PYG{n}{Animator} \PYG{n}{anime}\PYG{p}{;}
+    \PYG{k}{const} \PYG{k+kt}{float} \PYG{n}{FloorCheckRadius} \PYG{o}{=} \PYG{l+m+mf}{0.2f}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{bool} \PYG{n}{OnFloor}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{bool} \PYG{n}{jump} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{bool} \PYG{n}{doubleJump} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{k}{private} \PYG{n}{Rigidbody2D} \PYG{n}{myRigidbody2D}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{bool} \PYG{n}{diRight} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{k}{private} \PYG{n}{Vector3} \PYG{n}{velocity} \PYG{o}{=} \PYG{n}{Vector3}\PYG{p}{.}\PYG{n}{zero}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{k+kt}{int} \PYG{n}{coinCount} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{private} \PYG{k+kt}{float} \PYG{n}{horMove} \PYG{o}{=} \PYG{l+m+mf}{0f}\PYG{p}{;}
+    \PYG{p}{[}\PYG{n}{SerializeField}\PYG{p}{]} \PYG{k}{private} \PYG{k+kt}{float} \PYG{n}{runSpeed} \PYG{o}{=} \PYG{l+m+mf}{40f}\PYG{p}{;}
+
+    \PYG{k}{private} \PYG{k}{enum} \PYG{n}{State} \PYG{p}{\PYGZob{}} \PYG{n}{idle}\PYG{p}{,} \PYG{n}{run}\PYG{p}{,} \PYG{n}{jump}\PYG{p}{,} \PYG{n}{fall}\PYG{p}{,} \PYG{n}{deth}\PYG{p}{,} \PYG{n}{spawn}\PYG{p}{,} \PYG{n}{end} \PYG{p}{\PYGZcb{}}
+    \PYG{k}{private} \PYG{n}{State} \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+
+    \PYG{c+c1}{// Start is called before the first frame update}
+    \PYG{k+kt}{void} \PYG{n+nf}{Start}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+		\PYG{c+c1}{//initialize rigidbody, animator and turn off ending screen }
+        \PYG{n}{myRigidbody2D} \PYG{o}{=} \PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Rigidbody2D}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{anime} \PYG{o}{=} \PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Animator}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{uiend}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{);}
+        \PYG{n}{endScreen}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Update is called once per frame}
+    \PYG{k+kt}{void} \PYG{n+nf}{Update}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{endgame}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if ending screen quit}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{Input}\PYG{p}{.}\PYG{n}{anyKeyDown}\PYG{p}{)} \PYG{n}{Application}\PYG{p}{.}\PYG{n}{Quit}\PYG{p}{();}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{started}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if starting screen turn him off and turn controls on}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{Input}\PYG{p}{.}\PYG{n}{anyKeyDown}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n}{started} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+                \PYG{n}{uistart}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{);}
+                \PYG{n}{startScreen}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{else}
+        \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if not dead move pluer}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dead}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n}{horMove} \PYG{o}{=} \PYG{n}{Input}\PYG{p}{.}\PYG{n}{GetAxis}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Horizontal\PYGZdq{}}\PYG{p}{)} \PYG{o}{*} \PYG{n}{runSpeed}\PYG{p}{;}
+                \PYG{k}{if} \PYG{p}{(}\PYG{n}{Input}\PYG{p}{.}\PYG{n}{GetButtonDown}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Jump\PYGZdq{}}\PYG{p}{))}
+                \PYG{p}{\PYGZob{}}
+                    \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{jump}\PYG{p}{;}
+                    \PYG{n}{jump} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+                \PYG{k}{if} \PYG{p}{(}\PYG{n}{Input}\PYG{p}{.}\PYG{n}{GetButtonDown}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Cancel\PYGZdq{}}\PYG{p}{))}
+                \PYG{p}{\PYGZob{}}
+                    \PYG{n}{Application}\PYG{p}{.}\PYG{n}{Quit}\PYG{p}{();}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{FixedUpdate}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if not dead move pluer}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dead}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{floorCheck}\PYG{p}{();}
+            \PYG{n}{Move}\PYG{p}{(}\PYG{n}{horMove} \PYG{o}{*} \PYG{n}{Time}\PYG{p}{.}\PYG{n}{fixedDeltaTime}\PYG{p}{,} \PYG{n}{jump}\PYG{p}{);}
+            \PYG{n}{jump} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+            \PYG{n}{floorCheck}\PYG{p}{();}
+            \PYG{n}{StateChanger}\PYG{p}{();}
+            \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+       
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{OnCollisionEnter2D}\PYG{p}{(}\PYG{n}{Collision2D} \PYG{n}{collision}\PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+       \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dead}\PYG{p}{)}
+            \PYG{k}{switch} \PYG{p}{(}\PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{tag}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if not dead and collision with DETH go to death animation}
+                \PYG{k}{case} \PYG{l+s}{\PYGZdq{}DETH\PYGZdq{}}\PYG{o}{:}
+                    \PYG{p}{\PYGZob{}}
+                        \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{deth}\PYG{p}{;}
+                        \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+                        \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+                    \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{default}\PYG{o}{:}
+                    \PYG{p}{\PYGZob{}}
+
+                    \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{OnTriggerEnter2D}\PYG{p}{(}\PYG{n}{Collider2D} \PYG{n}{collision}\PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dead}\PYG{p}{)}
+            \PYG{k}{switch} \PYG{p}{(}\PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{tag}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}
+                \PYG{k}{case} \PYG{l+s}{\PYGZdq{}DETH\PYGZdq{}}\PYG{o}{:}
+                    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if not dead and collision with DETH go to death animation}
+                        \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{deth}\PYG{p}{;}
+                        \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+                        \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+                    \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{case} \PYG{l+s}{\PYGZdq{}Coin\PYGZdq{}}\PYG{o}{:}
+                    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if not dead and collision with Coin increase coinCount}
+                        \PYG{n}{counter}\PYG{p}{.}\PYG{n}{text} \PYG{o}{=} \PYG{n}{coinCount}\PYG{p}{.}\PYG{n}{ToString}\PYG{p}{();}
+                        \PYG{n}{Animator} \PYG{n}{animeCoin} \PYG{o}{=} \PYG{n}{collision}\PYG{p}{.}\PYG{n}{gameObject}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Animator}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+                        \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{animeCoin}\PYG{p}{.}\PYG{n}{GetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Collected\PYGZdq{}}\PYG{p}{))} \PYG{n}{coinCount}\PYG{o}{++}\PYG{p}{;}
+                        \PYG{n}{animeCoin}\PYG{p}{.}\PYG{n}{SetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Collected\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{true}\PYG{p}{);}
+                    \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{case} \PYG{l+s}{\PYGZdq{}Exit\PYGZdq{}}\PYG{o}{:}
+                    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//if not dead and collision with Exit show ending screen}
+                        \PYG{n}{endgame} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                        \PYG{n}{uiend}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+                        \PYG{n}{endScreen}\PYG{p}{.}\PYG{n}{SetActive}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+                        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+                        \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{n}{Vector3}\PYG{p}{.}\PYG{n}{zero}\PYG{p}{;}
+                        \PYG{n}{transform}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mf}{39.02f}\PYG{p}{,} \PYG{l+m+mf}{23.25f}\PYG{p}{,} \PYG{l+m+mf}{0f}\PYG{p}{);}
+                        \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+                        \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                    \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+                \PYG{k}{default}\PYG{o}{:}
+                    \PYG{p}{\PYGZob{}}
+
+                    \PYG{p}{\PYGZcb{}}\PYG{k}{break}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{floorCheck}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//Chech if floor down}
+        \PYG{k+kt}{bool} \PYG{n}{onfloor} \PYG{o}{=} \PYG{n}{OnFloor}\PYG{p}{;}
+        \PYG{n}{OnFloor} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+
+        \PYG{n}{Collider2D}\PYG{p}{[]} \PYG{n}{colliders} \PYG{o}{=} \PYG{n}{Physics2D}\PYG{p}{.}\PYG{n}{OverlapCircleAll}\PYG{p}{(}\PYG{n}{FloorCheck}\PYG{p}{.}\PYG{n}{position}\PYG{p}{,} \PYG{n}{FloorCheckRadius}\PYG{p}{,} \PYG{n}{Ground}\PYG{p}{);}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{colliders}\PYG{p}{.}\PYG{n}{Length}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{colliders}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{gameObject} \PYG{o}{!=} \PYG{n}{gameObject}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n}{OnFloor} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+                \PYG{n}{doubleJump} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{Move}\PYG{p}{(}\PYG{k+kt}{float} \PYG{n}{move}\PYG{p}{,} \PYG{k+kt}{bool} \PYG{n}{jump}\PYG{p}{)}
+    \PYG{p}{\PYGZob{}}
+		\PYG{c+c1}{//Add speed}
+        \PYG{n}{Vector3} \PYG{n}{targetVelocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{n}{move} \PYG{o}{*} \PYG{l+m+mf}{10f}\PYG{p}{,} \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);}
+        \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{n}{Vector3}\PYG{p}{.}\PYG{n}{SmoothDamp}\PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{,} \PYG{n}{targetVelocity}\PYG{p}{,} \PYG{n}{ref} \PYG{n}{velocity}\PYG{p}{,} \PYG{n}{MovementSmoothing}\PYG{p}{);}
+		\PYG{c+c1}{//Flip for needed direction}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{move} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{diRight}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{Flip}\PYG{p}{();}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{move} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{diRight}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{Flip}\PYG{p}{();}
+        \PYG{p}{\PYGZcb{}}
+		\PYG{c+c1}{//Jump}
+        \PYG{k}{if} \PYG{p}{((}\PYG{n}{OnFloor} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{jump}\PYG{p}{)} \PYG{o}{||} \PYG{p}{(}\PYG{n}{doubleJump} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{curState} \PYG{o}{==} \PYG{n}{State}\PYG{p}{.}\PYG{n}{jump} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{jump}\PYG{p}{)} \PYG{o}{||} \PYG{p}{(}\PYG{n}{doubleJump} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{curState} \PYG{o}{==} \PYG{n}{State}\PYG{p}{.}\PYG{n}{fall} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{jump}\PYG{p}{))}
+        \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{OnFloor}\PYG{p}{)}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n}{doubleJump} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{n}{OnFloor} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{l+m+mf}{0.1f}\PYG{p}{)} \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+            \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector2}\PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,} \PYG{n}{JumpForce}\PYG{p}{);}
+            \PYG{n}{jump} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{Flip}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{diRight} \PYG{o}{=} \PYG{o}{!}\PYG{n}{diRight}\PYG{p}{;}
+
+        \PYG{n}{transform}\PYG{p}{.}\PYG{n}{Rotate}\PYG{p}{(}\PYG{l+m+mf}{0f}\PYG{p}{,} \PYG{l+m+mf}{180f}\PYG{p}{,} \PYG{l+m+mf}{0f}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{StateChanger}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        \PYG{k}{switch} \PYG{p}{(}\PYG{n}{curState}\PYG{p}{)}
+        \PYG{p}{\PYGZob{}}
+            \PYG{k}{case} \PYG{n}{State}\PYG{p}{.}\PYG{n+nl}{jump}\PYG{p}{:}
+                \PYG{p}{\PYGZob{}}\PYG{c+c1}{//Negative vertical speed == falling}
+                    \PYG{k}{if} \PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.001f}\PYG{p}{)} \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{fall}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+                \PYG{k}{break}\PYG{p}{;}
+
+            \PYG{k}{case} \PYG{n}{State}\PYG{p}{.}\PYG{n+nl}{fall}\PYG{p}{:}
+                \PYG{p}{\PYGZob{}}\PYG{c+c1}{//OnFloor == idle}
+                    \PYG{k}{if} \PYG{p}{(}\PYG{n}{OnFloor}\PYG{p}{)} \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+                \PYG{k}{break}\PYG{p}{;}
+
+            \PYG{k}{default}\PYG{o}{:}
+                \PYG{p}{\PYGZob{}}\PYG{c+c1}{//Horizontal speed \PYGZgt{} 1f == run}
+                    \PYG{k}{if} \PYG{p}{(}\PYG{n}{Mathf}\PYG{p}{.}\PYG{n}{Abs}\PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{1f}\PYG{p}{)}
+                    \PYG{p}{\PYGZob{}}
+                        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{run}\PYG{p}{;}
+                    \PYG{p}{\PYGZcb{}}
+                    \PYG{k}{else}
+                    \PYG{p}{\PYGZob{}}
+                        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+                    \PYG{p}{\PYGZcb{}}
+					\PYG{c+c1}{//Negative vertical speed == falling}
+                    \PYG{k}{if} \PYG{p}{(}\PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.001f} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{OnFloor}\PYG{p}{)} \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{fall}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+                \PYG{k}{break}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{SpawnStart}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//Set position for spawn}
+        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{spawn}\PYG{p}{;}
+        \PYG{n}{Camera}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mf}{13.63f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.4199999f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{10f}\PYG{p}{);}
+        \PYG{n}{transform}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{n}{SpawnPoint}\PYG{p}{.}\PYG{n}{position}\PYG{p}{;}
+        \PYG{n}{myRigidbody2D}\PYG{p}{.}\PYG{n}{velocity} \PYG{o}{=} \PYG{n}{Vector3}\PYG{p}{.}\PYG{n}{zero}\PYG{p}{;}
+        \PYG{n}{Animator} \PYG{n}{disabler} \PYG{o}{=} \PYG{n}{LeftShooter}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Animator}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{disabler}\PYG{p}{.}\PYG{n}{SetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enabled\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{false}\PYG{p}{);}
+        \PYG{n}{disabler} \PYG{o}{=} \PYG{n}{RightShooter}\PYG{p}{.}\PYG{n}{GetComponent}\PYG{o}{\PYGZlt{}}\PYG{n}{Animator}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{disabler}\PYG{p}{.}\PYG{n}{SetBool}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enabled\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{false}\PYG{p}{);}
+        \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{private} \PYG{k+kt}{void} \PYG{n+nf}{SpawnEnd}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//Give controls to player}
+        \PYG{n}{dead} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+        \PYG{n}{Camera}\PYG{p}{.}\PYG{n}{position} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Vector3}\PYG{p}{(}\PYG{l+m+mf}{13.63f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.4199999f}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{10f}\PYG{p}{);}
+        \PYG{n}{curState} \PYG{o}{=} \PYG{n}{State}\PYG{p}{.}\PYG{n}{idle}\PYG{p}{;}
+        \PYG{n}{anime}\PYG{p}{.}\PYG{n}{SetInteger}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}AnimeState\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{curState}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

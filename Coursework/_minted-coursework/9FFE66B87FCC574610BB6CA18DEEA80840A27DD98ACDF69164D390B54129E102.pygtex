@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{using} \PYG{n}{System}\PYG{p}{.}\PYG{n}{Collections}\PYG{p}{;}
+\PYG{k}{using} \PYG{n}{System}\PYG{p}{.}\PYG{n}{Collections}\PYG{p}{.}\PYG{n}{Generic}\PYG{p}{;}
+\PYG{k}{using} \PYG{n}{UnityEngine}\PYG{p}{;}
+
+\PYG{k}{public} \PYG{k}{class} \PYG{n+nc}{CoinScript} \PYG{o}{:} \PYG{n}{MonoBehaviour}
+\PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// Start is called before the first frame update}
+    \PYG{k+kt}{void} \PYG{n}{Start}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Update is called once per frame}
+    \PYG{k+kt}{void} \PYG{n}{Update}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}
+        
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kt}{void} \PYG{n}{EndSparkle}\PYG{p}{()}
+    \PYG{p}{\PYGZob{}}\PYG{c+c1}{//Destroy coin}
+        \PYG{n}{Destroy}\PYG{p}{(}\PYG{n}{gameObject}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
